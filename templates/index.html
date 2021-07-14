@@ -1,0 +1,53 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RSS Feed App</title>
+    <link rel="stylesheet" href=" {{ url_for('static' , filename = 'css/style.css') }}">
+    <script src="{{ url_for('static' , filename = 'js/script.js') }}"></script>
+    <style>
+        body {
+            background-color:rgb(249, 250, 248) ;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid mt-4 ms-3 justify-center d-flex justify-content-center" >
+        <form method="POST" name="form">
+            <div class="card bg-primary m-2 text-white" style="width:800px;">
+                
+                <div class="card-header">
+
+                    <h1 class="title"> RSS Feed Reader Online </h1>
+                </div>
+                   
+                    
+                    <input type="text" name="url" class="form-control m-2 mt-4" style="width: 80%;align-self: center;">  
+                    <input type="submit" class="btn btn-dark text-white my-2 mb-2" style="align-self: center;" value="Search">
+                </form>
+        </div>
+    </div>
+
+   
+        <div class='container'>
+            {% for elm in list %}
+            <div class="card bg-light m-4 text-black">
+            
+
+            <div class="card-header bg-primary text-light my-2">
+
+                <h5 class="title">  {{elm[0]}} </h5>
+            </div>
+                <p class="px-4"> {{elm[1]}} </p>
+            
+            <a href="{{elm[2]}}" class="card-link p-3" style="transform: translate(15px);">{{elm[2]}} </a>
+          
+           
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+</body>
+</html>
